@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Rides
+comment1.params=rowOfStartInt\ colOfStartInt\ rowOfFinishInt\ colOfFinishInt\ earliestStart\ latestFinish
+comment1.target=Rides(int,\ int,\ int,\ int,\ int,\ int)
+comment2.params=
+comment2.target=int\ getRowOfStartInt()
+comment3.params=
+comment3.target=int\ getColOfStartInt()
+comment4.params=
+comment4.target=int\ getRowOfFinishInt()
+comment5.params=
+comment5.target=int\ getColOfFinishInt()
+comment6.params=
+comment6.target=int\ getEarliestStart()
+comment7.params=
+comment7.target=int\ getLatestFinish()
+numComments=8

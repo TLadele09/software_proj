@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.io.FileNotFoundException;
+import java.util.List;
 
 /**
  * Write a description of class WorldAndRides here.
@@ -19,44 +20,48 @@ public class WorldAndRides
     //and the requested rides.
 
 {
-    private ArrayList<Rides> rides;    
+    private ArrayList<Rides> rides;
+    //For the World
+    int numOfRows;
+    int numOfCols;
+    int numOfCars;
+    int numOfRides;
+    int numOfBonusPoints;
+    int numOfSteps;
     public WorldAndRides(String worldAndRidesFileName) throws FileFormatException {
         //TODO read the world information from worldAndRidesFileName
         //and store the information in this class
-        int numOfRows;
-        int numOfCols;
-        int numOfCars;
-        int numOfRides;
-        int numOfBonusPoints;
-        int numOfSteps;
-        rides = new ArrayList<>();
+        rides = new ArrayList<Rides>();
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(worldAndRidesFileName));
             String line = reader.readLine();
-            String[] strArr = line.split(" ");
-            int[] intArr = new int[strArr.length];
-            for(int i = 0; i < strArr.length; i++){
-                intArr[i] = Integer.parseInt(strArr[i]);
+            String[] world = line.split(" ");
+            int[] worldInt = new int[world.length];
+            for(int i = 0; i < world.length; i++){
+                worldInt[i] = Integer.parseInt(world[i]);
             }
-            numOfRows = intArr[0];
-            numOfCols = intArr[1];
-            numOfCars = intArr[2];
-            numOfRides = intArr[3];
-            numOfBonusPoints = intArr[4];
-            numOfSteps = intArr[5];
-            while((line!=null)){
-                for(int i = 0; i < numOfRides; i++){
-                    
-                }
-            }
-            for(Rides ride : rides) {
-                //ride.getNumOfRows() = intArr[0];
-            }
-            
-            reader.close();
-            //System.out.println(Arrays.toString(intArr));
+            numOfRows = worldInt[0];
+            numOfCols = worldInt[1]; 
+            numOfCars = worldInt[2];
+            numOfRides = worldInt[3];
+            numOfBonusPoints = worldInt[4];
+            numOfSteps = worldInt[5];
             System.out.println(numOfRows + ", " + numOfCols + ", " + numOfCars + ", " + numOfRides + ", " + numOfBonusPoints + ", " + numOfSteps);
+            List<String> ls = new ArrayList<String>();
+            while((line=reader.readLine())!=null){
+                ls.add(line);
+            }
+            for(String word : ls) {
+                String[] strArray = word.split(" ");
+                int[] intArray = new int[strArray.length];
+                for(int i = 0; i < strArray.length; i++){
+                    intArray[i] = Integer.parseInt(strArray[i]);
+                }
+                rides.add(new Rides(intArray[0],intArray[1],intArray[2],intArray[3],intArray[4],intArray[5]));
+                System.out.println(Arrays.toString(intArray));
+            }
+            reader.close();
         } catch (FileNotFoundException e) {
              System.out.println("ERROR: File not found");
         } catch(IOException e) {
@@ -68,4 +73,7 @@ public class WorldAndRides
     }
     
     //TODO define appropriate methods for this class.
+    //public Rides addRides(Rides ride){
+        //return rides;
+    //}
 }
