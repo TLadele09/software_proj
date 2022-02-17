@@ -20,7 +20,7 @@ public class WorldAndRides
     //and the requested rides.
 
 {
-    private ArrayList<Rides> rides;
+    ArrayList<Rides> rides;
     //For the World
     int numOfRows;
     int numOfCols;
@@ -52,28 +52,102 @@ public class WorldAndRides
             while((line=reader.readLine())!=null){
                 ls.add(line);
             }
+            //Rides eachRide = new Rides();
             for(String word : ls) {
                 String[] strArray = word.split(" ");
                 int[] intArray = new int[strArray.length];
                 for(int i = 0; i < strArray.length; i++){
                     intArray[i] = Integer.parseInt(strArray[i]);
                 }
+                //store parameters each ride
                 rides.add(new Rides(intArray[0],intArray[1],intArray[2],intArray[3],intArray[4],intArray[5]));
                 System.out.println(Arrays.toString(intArray));
             }
+            //System.out.println(rides.toString());
             reader.close();
         } catch (FileNotFoundException e) {
              System.out.println("ERROR: File not found");
         } catch(IOException e) {
             
         } 
-        
         //TODO read the information about the requested rides and store the
         //information in this class
     }
     
     //TODO define appropriate methods for this class.
-    //public Rides addRides(Rides ride){
-        //return rides;
-    //}
+    public int getNumOfRows(){
+        return numOfRows;
+    }
+    
+    public int getNumOfCols(){
+        return numOfCols;
+    }
+    
+    public int getNumOfCars(){
+        return numOfCars;
+    }
+    
+    public int getNumOfRides(){
+        return numOfRides;
+    }
+    
+    public int getNumOfBonusPoints(){
+        return numOfBonusPoints;
+    }
+    
+    public int getNumOfSteps(){
+        return numOfSteps;
+    }
+    
+    public Rides getRideIndex(int id) {
+        return rides.get(id);
+    }
+    
+    public int getRideRowStart(){
+        int rowStartInt = 0;
+        for(Rides ride : rides){
+            rowStartInt = ride.getRowOfStartInt();
+        }
+        return rowStartInt;
+    }
+    
+    public int getRideColStart(){
+        int colStartInt = 0;
+        for(Rides ride : rides){
+            colStartInt = ride.getColOfStartInt();
+        }
+        return colStartInt;
+    }
+    
+    public int getRideRowFinish(){
+        int rowFinishInt = 0;
+        for(Rides ride : rides){
+            rowFinishInt = ride.getRowOfFinishInt();
+        }
+        return rowFinishInt;
+    }
+    
+    public int getRideColFinish(){
+        int colFinishInt = 0;
+        for(Rides ride : rides){
+            colFinishInt = ride.getColOfFinishInt();
+        }
+        return colFinishInt;
+    }
+    
+    public int getRideEarliestStart(){
+        int earliestStartInt = 0;
+        for(Rides ride : rides){
+            earliestStartInt = ride.getEarliestStart();
+        }
+        return earliestStartInt;
+    }
+    
+    public int getRideLatestFinish(){
+        int latestFinishInt = 0;
+        for(Rides ride : rides){
+            latestFinishInt = ride.getLatestFinish();
+        }
+        return latestFinishInt;
+    }
 }

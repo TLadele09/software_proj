@@ -1,6 +1,6 @@
-
 public class Rides
 {
+    //For each ride
     int rowOfStartInt;
     int colOfStartInt;
     int rowOfFinishInt;
