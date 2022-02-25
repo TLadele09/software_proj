@@ -37,15 +37,13 @@ public class Allocation
                     intArray[i] = Integer.parseInt(strArray[i]);
                     car.add(intArray[i]);
                 }
-                numOfRides = car.get(0);
                 for(int i = 0; i<car.size()-1; i++){
                     carID.add(i);
                 }
                 //System.out.println(Arrays.toString(intArray));
             }
             cars.add(new Cars(numOfRides, carID));
-            
-            //System.out.println(car);
+            System.out.println(car);
             //System.out.println(carID);
             reader.close();
         } catch (FileNotFoundException e) {

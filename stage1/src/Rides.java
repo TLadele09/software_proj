@@ -40,4 +40,9 @@ public class Rides
     public int getLatestFinish() {
         return latestFinish;
     }
+    
+    @Override
+    public String toString() {
+        return(rowOfStartInt + " " + colOfStartInt + " " + rowOfFinishInt + " " + colOfFinishInt + " " + earliestStart + " " + latestFinish);
+    }
 }
