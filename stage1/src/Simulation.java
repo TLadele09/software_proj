@@ -20,10 +20,7 @@ public class Simulation
        try {
            WorldAndRides worldAndRides = new WorldAndRides(worldAndRidesFileName);
            Allocation allocation = new Allocation(allocationFileName, worldAndRides);
-           
-           //rides = new ArrayList<Rides>();
            //score for simulation
-           int score = 0;
            //world components 
            int worldRows = worldAndRides.getNumOfRows();
            int worldCols = worldAndRides.getNumOfCols();
@@ -33,28 +30,31 @@ public class Simulation
            int worldSteps = worldAndRides.getNumOfSteps();
            int drivetoStart = 0;
            int drivetoFinish = 0;
-           int rideLength = 0;
            //For each ride
            int[][] world = new int[worldRows][worldCols];
            int []startPoint = new int[2];
            int []finishPoint = new int[2];
-           startPoint[0] = worldAndRides.getRideRowStart();
-           startPoint[1] = worldAndRides.getRideRowFinish();
-           finishPoint[0] = worldAndRides.getRideColStart();
-           finishPoint[1] = worldAndRides.getRideColFinish();
            //for every car that exists
            //need to get list of rides that the car needs to do
            //then simulate what every car needs to do
-           int rideBonus = 0;
+           int score = 0;
+           //For each Car
            for(Cars car: allocation.cars){
                int rideId = 0;
                int clock = 0;
-               int startLength = 0;
                int []currentPos = {0,0};
+               //For each Ride
                for(int x = 0; x < car.id.size(); x++){
+                   int rideBonus = 0;   
                    rideId = car.id.get(x);
+                   int startLength = 0;
+                   int rideLength = 0;
                    Rides eachRide = worldAndRides.getRideIndex(rideId);
-                   System.out.println(eachRide.toString());
+                   //System.out.println(eachRide.toString());
+                   startPoint[0] = eachRide.getRowOfStartInt();
+                   startPoint[1] = eachRide.getColOfStartInt();
+                   finishPoint[0] = eachRide.getRowOfFinishInt();
+                   finishPoint[1] = eachRide.getColOfFinishInt();
                    int i = Math.abs(startPoint[1] - currentPos[1]);
                    int j = Math.abs(startPoint[0] - currentPos[0]);
                    startLength = i + j;
@@ -67,28 +67,28 @@ public class Simulation
                        rideLength = f + g;
                        if(eachRide.getLatestFinish() >= rideLength) {
                            rideBonus = worldBonusPoints;
-                           score = rideLength + rideBonus;
-                           clock = startLength + rideLength;
+                           score = score + rideLength + rideBonus;
+                           clock = clock + startLength + rideLength;
                        } else {
                            rideBonus = 0;
-                           score = rideLength;
-                           clock = startLength + rideLength;
+                           score = score + rideLength;
+                           clock = clock + startLength + rideLength;
                        }
                    } else {
                        int f = Math.abs(finishPoint[1] - startPoint[1]);
                        int g = Math.abs(finishPoint[0] - startPoint[0]);
                        rideLength = f + g;
                        if(eachRide.getLatestFinish() >= startLength + rideLength) {
-                           rideBonus = worldBonusPoints;
-                           score = rideLength + rideBonus;
-                           clock = startLength + rideLength;
+                           rideBonus = 0;
+                           score = score + rideLength + rideBonus;
+                           clock = clock + startLength + rideLength;
                        } else {
                            rideBonus = 0;
-                           score = rideLength;
-                           clock = startLength + rideLength;
+                           score = score + rideLength;
+                           clock = clock + startLength + rideLength;
                        }
                    }
-                   System.out.println(clock);
+                   //System.out.println(clock);
                }
            }
            System.out.println(score);

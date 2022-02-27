@@ -47,7 +47,7 @@ public class WorldAndRides
             numOfRides = worldInt[3];
             numOfBonusPoints = worldInt[4];
             numOfSteps = worldInt[5];
-            System.out.println(numOfRows + ", " + numOfCols + ", " + numOfCars + ", " + numOfRides + ", " + numOfBonusPoints + ", " + numOfSteps);
+            //System.out.println(numOfRows + ", " + numOfCols + ", " + numOfCars + ", " + numOfRides + ", " + numOfBonusPoints + ", " + numOfSteps);
             List<String> ls = new ArrayList<String>();
             while((line=reader.readLine())!=null){
                 ls.add(line);
@@ -61,7 +61,7 @@ public class WorldAndRides
                 }
                 //store parameters each ride
                 rides.add(new Rides(intArray[0],intArray[1],intArray[2],intArray[3],intArray[4],intArray[5]));
-                System.out.println(Arrays.toString(intArray));
+                //System.out.println(Arrays.toString(intArray));
             }
             //System.out.println(rides.toString());
             reader.close();

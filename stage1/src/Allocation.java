@@ -43,7 +43,7 @@ public class Allocation
                 //System.out.println(Arrays.toString(intArray));
             }
             cars.add(new Cars(numOfRides, carID));
-            System.out.println(car);
+            //System.out.println(car);
             //System.out.println(carID);
             reader.close();
         } catch (FileNotFoundException e) {
