@@ -1,12 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.lang.Math;
-/**
- * Write a description of class Simulation here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class Simulation
 {
    String worldAndRidesFileName;
@@ -84,7 +78,7 @@ public class Simulation
                            clock = clock + startLength + rideLength;
                        } else {
                            rideBonus = 0;
-                           score = score + rideLength;
+                           score = score;
                            clock = clock + startLength + rideLength;
                        }
                    }

@@ -19,32 +19,39 @@ public class Allocation
         //TODO read an allocation from allocationFileName and stores the content in
         //an appropriate datastructure inside this class
         cars = new ArrayList<Cars>();
-        carID = new ArrayList<Integer>();
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(allocationFileName));
             String line;
             List<String> ls = new ArrayList<String>();
-            ArrayList<Integer> car = new ArrayList<Integer>();
             int numOfRides = 0;
             while((line=reader.readLine())!=null){
                 ls.add(line);
             }
             for(String word : ls) {
+                ArrayList<Integer> car = new ArrayList<Integer>();
                 String[] strArray = word.split(" ");
                 int[] intArray = new int[strArray.length];
                 for(int i = 0; i < strArray.length; i++){
                     intArray[i] = Integer.parseInt(strArray[i]);
                     car.add(intArray[i]);
                 }
-                for(int i = 0; i<car.size()-1; i++){
-                    carID.add(i);
+                //System.out.println(car);
+                carID = new ArrayList<Integer>();
+                for(int j = 0; j < car.size(); j++) {
+                    if(j==0){
+                        numOfRides = car.get(0);
+                    } else {
+                        carID.add(car.get(j));
+                    }
                 }
-                //System.out.println(Arrays.toString(intArray));
+                //System.out.println(numOfRides);
+                //System.out.println(carID);
+                cars.add(new Cars(numOfRides, carID));
             }
-            cars.add(new Cars(numOfRides, carID));
+            
             //System.out.println(car);
-            //System.out.println(carID);
+            //System.out.println(cars.toString());
             reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("ERROR: File not found");

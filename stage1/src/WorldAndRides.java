@@ -8,12 +8,6 @@ import java.util.Arrays;
 import java.io.FileNotFoundException;
 import java.util.List;
 
-/**
- * Write a description of class WorldAndRides here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class WorldAndRides
 
     //TODO decide a proper data-structure to store the information about the world

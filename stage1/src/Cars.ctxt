@@ -7,4 +7,6 @@ comment2.params=
 comment2.target=int\ getNumOfRides()
 comment3.params=index
 comment3.target=int\ getId(int)
-numComments=4
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5

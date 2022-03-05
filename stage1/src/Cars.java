@@ -25,4 +25,9 @@ public class Cars
     {
         return id.get(index);
     }
+    
+    @Override
+    public String toString() {
+        return(numOfRides + " " + id);
+    }
 }
