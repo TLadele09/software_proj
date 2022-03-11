@@ -82,6 +82,9 @@ public class Simulation
                            clock = clock + startLength + rideLength;
                        }
                    }
+                   currentPos[0] = finishPoint[0];
+                   currentPos[1] = finishPoint[1];
+                   //System.out.println("{" + currentPos[0] + ", " + currentPos[1] + "}");
                    //System.out.println(clock);
                }
            }
