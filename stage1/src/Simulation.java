@@ -44,7 +44,7 @@ public class Simulation
                    int startLength = 0;
                    int rideLength = 0;
                    Rides eachRide = worldAndRides.getRideIndex(rideId);
-                   //System.out.println(eachRide.toString());
+                   System.out.println(eachRide.toString());
                    startPoint[0] = eachRide.getRowOfStartInt();
                    startPoint[1] = eachRide.getColOfStartInt();
                    finishPoint[0] = eachRide.getRowOfFinishInt();
@@ -54,25 +54,20 @@ public class Simulation
                    startLength = i + j;
                    //currentPos[0] = j;
                    //currentPos[1] = i;
-                   if(eachRide.getEarliestStart() >= startLength ){
+                   if(eachRide.getEarliestStart() >= clock + startLength){
+                       int waitTime = eachRide.getEarliestStart() - (clock + startLength);
                        rideBonus = eachRide.getEarliestStart() - startLength;
                        int f = Math.abs(finishPoint[1] - startPoint[1]);
                        int g = Math.abs(finishPoint[0] - startPoint[0]);
                        rideLength = f + g;
-                       if(eachRide.getLatestFinish() >= rideLength) {
-                           rideBonus = worldBonusPoints;
-                           score = score + rideLength + rideBonus;
-                           clock = clock + startLength + rideLength;
-                       } else {
-                           rideBonus = 0;
-                           score = score + rideLength;
-                           clock = clock + startLength + rideLength;
-                       }
+                       rideBonus = worldBonusPoints;
+                       score = score + rideLength + rideBonus;
+                       clock = clock + waitTime + startLength + rideLength;
                    } else {
                        int f = Math.abs(finishPoint[1] - startPoint[1]);
                        int g = Math.abs(finishPoint[0] - startPoint[0]);
                        rideLength = f + g;
-                       if(eachRide.getLatestFinish() >= startLength + rideLength) {
+                       if(eachRide.getLatestFinish() >= clock + startLength + rideLength) {
                            rideBonus = 0;
                            score = score + rideLength + rideBonus;
                            clock = clock + startLength + rideLength;
