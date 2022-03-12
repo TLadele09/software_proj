@@ -44,7 +44,7 @@ public class Simulation
                    int startLength = 0;
                    int rideLength = 0;
                    Rides eachRide = worldAndRides.getRideIndex(rideId);
-                   System.out.println(eachRide.toString());
+                   //System.out.println(eachRide.toString());
                    startPoint[0] = eachRide.getRowOfStartInt();
                    startPoint[1] = eachRide.getColOfStartInt();
                    finishPoint[0] = eachRide.getRowOfFinishInt();
