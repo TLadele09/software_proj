@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Allocation
+comment1.params=worldAndRides
+comment1.target=Allocation(WorldAndRides)
+comment2.params=
+comment2.target=void\ printAllocation()
+numComments=3

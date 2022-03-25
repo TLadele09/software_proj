@@ -24,7 +24,7 @@ public class Simulation
            int worldSteps = worldAndRides.getNumOfSteps();
            int drivetoStart = 0;
            int drivetoFinish = 0;
-           //For each ride
+           //For rides
            int[][] world = new int[worldRows][worldCols];
            int []startPoint = new int[2];
            int []finishPoint = new int[2];
@@ -34,6 +34,7 @@ public class Simulation
            int score = 0;
            //For each Car
            for(Cars car: allocation.cars){
+               //For each Car initialise the components that the car uses
                int rideId = 0;
                int clock = 0;
                int []currentPos = {0,0};
