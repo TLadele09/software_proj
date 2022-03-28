@@ -49,6 +49,7 @@ public class WorldAndRides
                 ls.add(line);
             }
             //Rides eachRide = new Rides();
+            int rideID = 0;
             for(String word : ls) {
                 String[] strArray = word.split(" ");
                 int[] intArray = new int[strArray.length];
@@ -56,18 +57,21 @@ public class WorldAndRides
                     intArray[i] = Integer.parseInt(strArray[i]);
                 }
                 //store parameters each ride
-                rides.add(new Rides(intArray[0],intArray[1],intArray[2],intArray[3],intArray[4],intArray[5]));
+                rides.add(new Rides(rideID,intArray[0],intArray[1],intArray[2],intArray[3],intArray[4],intArray[5]));
+                rideID++;
                 //System.out.println(Arrays.toString(intArray));
             }
-            //sort earliest start
+            
             for(int j = 0; j < rides.size(); j++){
                 System.out.println(rides.get(j));
             }
+            //sort earliest start
             Collections.sort(rides, new sortEarliestStartRides());
             System.out.println("\n------ Sorted List: By Earliest Start -------");
             for(int j = 0; j < rides.size(); j++){
                 System.out.println(rides.get(j));
             }
+            //sort Latest Finish
             Collections.sort(rides, new sortLatestFinishRides());
             System.out.println("\n------ Sorted List: By Latest Finish -------");
             for(int j = 0; j < rides.size(); j++){
@@ -82,8 +86,16 @@ public class WorldAndRides
         } 
         //TODO read the information about the requested rides and store the
         //information in this class
+        // 2 2 1
     }
     
+    public void sortEarliest(){
+        Collections.sort(rides, new sortEarliestStartRides());
+    }
+    
+    public void sortLatest(){
+        Collections.sort(rides, new sortLatestFinishRides());
+    }
     //TODO define appropriate methods for this class.
     public int getNumOfRows(){
         return numOfRows;
@@ -160,6 +172,4 @@ public class WorldAndRides
         }
         return latestFinishInt;
     }    
-    
-    
 }

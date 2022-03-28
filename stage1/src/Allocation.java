@@ -47,7 +47,7 @@ public class Allocation
                 }
                 //System.out.println(numOfRides);
                 //System.out.println(carID);
-                cars.add(new Cars(numOfRides, carID));
+                cars.add(new Cars(numOfRides, carID)); 
             }
             
             //System.out.println(car);

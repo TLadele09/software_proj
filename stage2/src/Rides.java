@@ -3,21 +3,27 @@ import java.util.ArrayList;
 public class Rides
 {
     //For each ride
+    int rideID;
     int rowOfStartInt;
     int colOfStartInt;
     int rowOfFinishInt;
     int colOfFinishInt;
     int earliestStart;
     int latestFinish;
-    int rideID;
-    public Rides(int rowOfStartInt, int colOfStartInt, int rowOfFinishInt, int colOfFinishInt, int earliestStart, int latestFinish)
+    
+    public Rides(int rideID, int rowOfStartInt, int colOfStartInt, int rowOfFinishInt, int colOfFinishInt, int earliestStart, int latestFinish)
     {
+        this.rideID = rideID;
         this.rowOfStartInt = rowOfStartInt;
         this.colOfStartInt = colOfStartInt;
         this.rowOfFinishInt = rowOfFinishInt;
         this.colOfFinishInt = colOfFinishInt;
         this.earliestStart = earliestStart;
         this.latestFinish = latestFinish;
+    }
+    
+    public int getRideID() {
+        return rideID;
     }
 
     public int getRowOfStartInt() {
@@ -46,7 +52,7 @@ public class Rides
     
     @Override
     public String toString() {
-        return(rowOfStartInt + " " + colOfStartInt + " " + rowOfFinishInt + " " + colOfFinishInt + " " + earliestStart + " " + latestFinish);
+        return("RideID = " + rideID + ", " + rowOfStartInt + " " + colOfStartInt + " " + rowOfFinishInt + " " + colOfFinishInt + " " + earliestStart + " " + latestFinish);
     }
 }
 
