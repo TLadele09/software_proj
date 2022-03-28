@@ -12,7 +12,7 @@ public class Allocation
 {
     ArrayList<Cars> cars;
     ArrayList<Integer> carID;
-    public Allocation(WorldAndRides worldAndRides) throws FileFormatException 
+    public Allocation(WorldAndRides worldAndRides) throws FileFormatException
     {
         cars = new ArrayList<Cars>();
         int rID = 0;
