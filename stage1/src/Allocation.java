@@ -29,6 +29,7 @@ public class Allocation
                 ls.add(line);
             }
             for(String word : ls) {
+                //for each car
                 ArrayList<Integer> car = new ArrayList<Integer>();
                 String[] strArray = word.split(" ");
                 int[] intArray = new int[strArray.length];

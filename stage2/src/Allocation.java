@@ -18,11 +18,11 @@ public class Allocation
         int rID = 0;
         //retrieve the ID of each Ride
         //add the ride id to the arraylist of the Car IDs
+        worldAndRides.sortEarliest();
         for(int i = 0; i < worldAndRides.rides.size(); i++){
             Rides ride = worldAndRides.rides.get(i);
             int numOfRides = 0;
             carID = new ArrayList<Integer>();
-            worldAndRides.sortEarliest();
             rID = ride.getRideID(); 
             carID.add(rID);
             numOfRides++;
@@ -37,7 +37,6 @@ public class Allocation
             for(int i = 0; i < car.ID.size(); i++){
                 System.out.println(car.ID.get(i) + " ");
             }
-            //System.out.print(car.getID());
         }
     }
 }

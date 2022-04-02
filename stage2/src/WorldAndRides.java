@@ -62,21 +62,21 @@ public class WorldAndRides
                 //System.out.println(Arrays.toString(intArray));
             }
             
-            for(int j = 0; j < rides.size(); j++){
-                System.out.println(rides.get(j));
-            }
+            //for(int j = 0; j < rides.size(); j++){
+                //System.out.println(rides.get(j));
+            //}
             //sort earliest start
-            Collections.sort(rides, new sortEarliestStartRides());
-            System.out.println("\n------ Sorted List: By Earliest Start -------");
-            for(int j = 0; j < rides.size(); j++){
-                System.out.println(rides.get(j));
-            }
+            //Collections.sort(rides, new sortEarliestStartRides());
+            ///System.out.println("\n------ Sorted List: By Earliest Start -------");
+            //for(int j = 0; j < rides.size(); j++){
+                //System.out.println(rides.get(j));
+            //}
             //sort Latest Finish
-            Collections.sort(rides, new sortLatestFinishRides());
-            System.out.println("\n------ Sorted List: By Latest Finish -------");
-            for(int j = 0; j < rides.size(); j++){
-                System.out.println(rides.get(j));
-            }
+            //Collections.sort(rides, new sortLatestFinishRides());
+            //System.out.println("\n------ Sorted List: By Latest Finish -------");
+            //for(int j = 0; j < rides.size(); j++){
+                //System.out.println(rides.get(j));
+            //}
             //System.out.println(rides.toString());
             reader.close();
         } catch (FileNotFoundException e) {
