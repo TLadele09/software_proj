@@ -19,7 +19,7 @@ public class Allocation
         int numOfCars = 0;
         //retrieve the ID of each Ride
         //add the ride id to the arraylist of the Car IDs
-        worldAndRides.sortLatest();
+        worldAndRides.sortEarliest();
         for(int i = 0; i < worldAndRides.rides.size(); i++){
             if(numOfCars < worldAndRides.getNumOfCars()){
                 Rides ride = worldAndRides.rides.get(i);
