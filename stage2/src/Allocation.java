@@ -17,25 +17,25 @@ public class Allocation
         cars = new ArrayList<Cars>();
         int rID = 0;
         int numOfCars = 0;
-        int numOfRides = 0;
         //retrieve the ID of each Ride
         //add the ride id to the arraylist of the Car IDs
         worldAndRides.sortEarliest();
         int rideTocar = worldAndRides.rides.size()/worldAndRides.getNumOfCars();
         //System.out.println(rideTocar);
+        int numOfRides = 0; 
         carID = new ArrayList<Integer>();
         for(int i = 0; i < worldAndRides.rides.size(); i++){
             if(numOfCars < worldAndRides.getNumOfCars()){
                 Rides ride = worldAndRides.rides.get(i);
-                rID = ride.getRideID(); 
-                if(carID.size() < rideTocar){
-                    carID.add(rID);
-                    numOfRides++;
-                } else {
+                rID = ride.getRideID();
+                if(carID.size() < 3){
+                   carID.add(rID); 
+                   numOfRides++;
+                }else {
                     cars.add(new Cars(numOfRides, carID));
                     carID = new ArrayList<Integer>();
-                    numOfRides = 0;
                     numOfCars++;
+                    numOfRides = 0; 
                 }
             }
         }
