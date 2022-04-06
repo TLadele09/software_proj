@@ -28,7 +28,7 @@ public class Allocation
             if(numOfCars < worldAndRides.getNumOfCars()){
                 Rides ride = worldAndRides.rides.get(i);
                 rID = ride.getRideID();
-                if(carID.size() < 8 && worldAndRides.rides.size() > 8){
+                if(carID.size() < 12 && worldAndRides.rides.size() > 12){
                    carID.add(rID); 
                    numOfRides++;
                 }else {
